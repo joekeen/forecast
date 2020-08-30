@@ -34,3 +34,4 @@ build/
 
 /src/main/resources/application-loc.properties
 /node_modules/
+/webpack.generated.js

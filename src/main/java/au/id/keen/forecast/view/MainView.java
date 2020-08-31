@@ -3,6 +3,7 @@ package au.id.keen.forecast.view;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -15,6 +16,7 @@ import com.vaadin.flow.router.RouterLink;
 import java.util.HashMap;
 import java.util.Map;
 
+@CssImport("./styles/styles.css")
 public class MainView extends AppLayout implements BeforeEnterObserver {
 
     private Tabs tabs = new Tabs();
@@ -31,16 +33,15 @@ public class MainView extends AppLayout implements BeforeEnterObserver {
 
     private void setupNavbar() {
         Anchor logout = new Anchor("logout", "Log out");
+        logout.addClassName("logout");
 
         HorizontalLayout header = new HorizontalLayout(
                 new DrawerToggle(),
                 logout
         );
+        header.addClassName("header");
         header.setWidthFull();
         header.setAlignItems(FlexComponent.Alignment.CENTER);
-
-        logout.getElement().getStyle().set("margin-left", "auto");
-        logout.getElement().getStyle().set("margin-right", "1em");
 
         addToNavbar(header);
     }

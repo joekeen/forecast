@@ -63,4 +63,7 @@ public class Transaction {
         this.intervalWeeks = pSchedule.getIntervalWeeks();
         this.intervalMonths = pSchedule.getIntervalMonths();
     }
+
+    public Transaction() {
+    }
 }

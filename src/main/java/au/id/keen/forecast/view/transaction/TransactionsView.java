@@ -57,7 +57,7 @@ public class TransactionsView extends VerticalLayout {
         grid.addColumn(TransactionDTO::getDate).setHeader("Date");
         grid.addColumn(TransactionDTO::getAmount).setHeader("Amount").setTextAlign(ColumnTextAlign.END);
         grid.addColumn(t -> t.getAccount().getName()).setHeader("Account");
-        grid.addColumn(t -> StringUtils.join(t.getTags().stream().map(TagDTO::getName).sorted().collect(Collectors.toList()), ", ")).setHeader("Tags");
+        grid.addColumn(t -> StringUtils.join(t.getTagsNames(), ", ")).setHeader("Tags");
         grid.addColumn(TransactionDTO::getNote).setHeader("Note");
 
         grid.addThemeVariants(GridVariant.LUMO_NO_BORDER);

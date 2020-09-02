@@ -1,6 +1,7 @@
 package au.id.keen.forecast.view;
 
 import au.id.keen.forecast.view.account.AccountsView;
+import au.id.keen.forecast.view.scheduled.ScheduledView;
 import au.id.keen.forecast.view.tag.TagsView;
 import au.id.keen.forecast.view.transaction.TransactionsView;
 import com.vaadin.flow.component.Component;
@@ -27,9 +28,10 @@ public class MainView extends AppLayout implements BeforeEnterObserver {
 
     public MainView() {
         addMenuTab("Main", DefaultView.class);
-        addMenuTab("Admin", AdminView.class);
+//        addMenuTab("Admin", AdminView.class);
         addMenuTab("Dashboard", DashboardView.class);
         addMenuTab("Accounts", AccountsView.class);
+        addMenuTab("Scheduled", ScheduledView.class);
         addMenuTab("Transactions", TransactionsView.class);
         addMenuTab("Tags", TagsView.class);
         tabs.setOrientation(Tabs.Orientation.VERTICAL);

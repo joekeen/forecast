@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -60,5 +61,10 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public long count(TransactionDaoParam pParam) {
         return transactionRepository.count(pParam);
+    }
+
+    @Override
+    public void save(Collection<Transaction> pTransactions) {
+        transactionRepository.saveAll(pTransactions);
     }
 }

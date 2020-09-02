@@ -1,5 +1,8 @@
 package au.id.keen.forecast.view;
 
+import au.id.keen.forecast.view.account.AccountsView;
+import au.id.keen.forecast.view.tag.TagsView;
+import au.id.keen.forecast.view.transaction.TransactionsView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;

@@ -33,6 +33,9 @@ public class TagRepositoryCustomImpl extends QuerydslRepositorySupport implement
             query.where(tag.name.in(pParam.getNames()));
         }
 
+        // default order
+        query.orderBy(QTag.tag.name.asc());
+
         return query.fetch();
 
     }

@@ -12,8 +12,6 @@ import com.vaadin.flow.router.Route;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import java.util.List;
-
 @Route(value = "scheduled", layout = MainView.class)
 public class ScheduledView extends VerticalLayout {
 

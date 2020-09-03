@@ -27,13 +27,11 @@ public class MainView extends AppLayout implements BeforeEnterObserver {
     private Map<Class<? extends Component>, Tab> navigationTargetToTab = new HashMap<>();
 
     public MainView() {
-        addMenuTab("Main", DefaultView.class);
-//        addMenuTab("Admin", AdminView.class);
-        addMenuTab("Dashboard", DashboardView.class);
+        addMenuTab("Dashboard", DefaultView.class);
         addMenuTab("Accounts", AccountsView.class);
         addMenuTab("Scheduled", ScheduledView.class);
-        addMenuTab("Transactions", TransactionsView.class);
         addMenuTab("Tags", TagsView.class);
+        addMenuTab("Transactions", TransactionsView.class);
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         addToDrawer(tabs);
         setupNavbar();

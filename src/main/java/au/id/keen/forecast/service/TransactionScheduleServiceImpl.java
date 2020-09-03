@@ -84,8 +84,8 @@ public class TransactionScheduleServiceImpl implements TransactionScheduleServic
             transaction.setAmount(pDTO.getAmount());
             transaction.setTags(Sets.newHashSet(getTags(pParam.getUserEmail(), pDTO)));
 
-            transaction.setIntervalWeeks(pDTO.getSpreadWeeks());
-            transaction.setIntervalMonths(pDTO.getSpreadMonths());
+            transaction.setIntervalWeeks(pDTO.getIntegerWeeks());
+            transaction.setIntervalMonths(pDTO.getIntegerMonths());
 
             transactions.add(transaction);
 
@@ -115,7 +115,7 @@ public class TransactionScheduleServiceImpl implements TransactionScheduleServic
 
         String userEmail = pParam.getUserEmail();
         setProperties(schedule, userEmail, pDTO.getDate(), pDTO.getEndDate(), pDTO.getAmount(), pDTO.getAccount(),
-                getTags(userEmail, pDTO), pDTO.getNote(), pDTO.getSpreadWeeks(), pDTO.getSpreadMonths());
+                getTags(userEmail, pDTO), pDTO.getNote(), pDTO.getIntegerWeeks(), pDTO.getIntegerMonths());
 
     }
 
@@ -138,7 +138,7 @@ public class TransactionScheduleServiceImpl implements TransactionScheduleServic
         TransactionSchedule schedule = new TransactionSchedule();
 
         setProperties(schedule, pUserEmail, pDTO.getDate(), pDTO.getEndDate(), pDTO.getAmount(), pDTO.getAccount(),
-                getTags(pUserEmail, pDTO), pDTO.getNote(), pDTO.getSpreadWeeks(), pDTO.getSpreadMonths());
+                getTags(pUserEmail, pDTO), pDTO.getNote(), pDTO.getIntegerWeeks(), pDTO.getIntegerMonths());
 
         transactionScheduleRepository.save(schedule);
     }

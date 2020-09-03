@@ -13,7 +13,7 @@ public class PayTransactionScheduleDTO {
     private String note;
     private LocalDate date;
     private List<TagDTO> tags;
-    private Integer spreadWeeks;
-    private Integer spreadMonths;
+    private Integer integerWeeks;
+    private Integer integerMonths;
 
 }

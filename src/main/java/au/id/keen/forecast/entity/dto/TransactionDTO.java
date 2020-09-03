@@ -21,9 +21,9 @@ public class TransactionDTO {
     private LocalDate date;
     private Integer id;
     private List<TagDTO> tags;
-    private Boolean spreadWeeks; // TODO: rename intervalWeeks
-    private Boolean spreadMonths; // TODO: rename intervalMonths
-    private Integer spread; // TODO: rename interval
+    private Boolean intervalWeeks;
+    private Boolean intervalMonths;
+    private Integer interval;
 
     public TransactionDTO(Transaction pTransaction) {
         this.id = pTransaction.getId();
@@ -36,10 +36,14 @@ public class TransactionDTO {
         }
         this.note = pTransaction.getNote();
         this.amount = pTransaction.getAmount();
-        this.spreadWeeks = Optional.ofNullable(pTransaction.getIntervalWeeks()).orElse(0) > 0 || Optional.ofNullable(pTransaction.getIntervalMonths()).orElse(0) == 0;
-        this.spreadMonths = Optional.ofNullable(pTransaction.getIntervalMonths()).orElse(0) > 0;
-        this.spread = Optional.ofNullable(pTransaction.getIntervalWeeks()).orElse(0) > 0
+        this.intervalWeeks = Optional.ofNullable(pTransaction.getIntervalWeeks()).orElse(0) > 0 || Optional.ofNullable(pTransaction.getIntervalMonths()).orElse(0) == 0;
+        this.intervalMonths = Optional.ofNullable(pTransaction.getIntervalMonths()).orElse(0) > 0;
+        this.interval = Optional.ofNullable(pTransaction.getIntervalWeeks()).orElse(0) > 0
                 ? Optional.ofNullable(pTransaction.getIntervalWeeks()).orElse(0) : Optional.ofNullable(pTransaction.getIntervalMonths()).orElse(0);
+    }
+
+    public TransactionDTO() {
+
     }
 
     public List<String> getTagsNames() {

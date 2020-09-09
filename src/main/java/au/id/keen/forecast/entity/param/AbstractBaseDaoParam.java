@@ -6,4 +6,7 @@ import lombok.Data;
 public abstract class AbstractBaseDaoParam {
 
     private String userEmail;
+
+    private Long offset;
+    private Long limit;
 }

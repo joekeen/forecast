@@ -7,8 +7,6 @@ import java.util.Set;
 @Data
 public class TransactionDaoParam extends AbstractBaseDaoParam {
 
-    private Integer page;
-    private Integer size;
     private Set<String> accountNames;
     private Set<Integer> ids;
 

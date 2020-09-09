@@ -42,12 +42,11 @@ public class TransactionRepositoryCustomImpl extends QuerydslRepositorySupport i
         if (StringUtils.isNotBlank(pParam.getUserEmail())) {
             query.where(q.account.user.email.eq(pParam.getUserEmail()));
         }
-        if (pParam.getPage() != null && pParam.getSize() != null) {
-            // TODO: confirm this is correct
-            query.offset(pParam.getPage() * pParam.getSize());
+        if (pParam.getOffset() != null) {
+            query.offset(pParam.getOffset());
         }
-        if (pParam.getSize() != null) {
-            query.limit(pParam.getSize());
+        if (pParam.getLimit() != null) {
+            query.limit(pParam.getLimit());
         }
         if (CollectionUtils.isNotEmpty(pParam.getAccountNames())) {
             query.where(q.account.name.in(pParam.getAccountNames()));

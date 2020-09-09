@@ -10,6 +10,7 @@ import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridSortOrder;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
@@ -29,6 +30,8 @@ public class TagsView extends VerticalLayout {
     private TagForm form;
 
     public TagsView(TagService pTagService) {
+        setPadding(false);
+
         this.tagService = pTagService;
 
         addClassName("list-view");
@@ -52,11 +55,15 @@ public class TagsView extends VerticalLayout {
 
     private Component getToolBar() {
         HorizontalLayout layout = new HorizontalLayout();
+        layout.setPadding(true);
+
         layout.setWidthFull();
         layout.addClassName("toolbar");
 
         Button button = new Button("Add", new Icon(VaadinIcon.PLUS), click -> addTag());
-        layout.add(button);
+        H3 header = new H3("Tags");
+        layout.add(header, button);
+        layout.expand(header);
 
         layout.setAlignItems(Alignment.END);
 

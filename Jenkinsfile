@@ -10,7 +10,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-               sh 'mvn -B -DskipTests clean deploy'
+                configFileProvider(
+                    [configFile(fileId: 'jfrog', variable: 'MAVEN_SETTINGS')]) {
+                    sh 'mvn -B -s $MAVEN_SETTINGS -DskipTests clean deploy'
+                }
             }
         }
     }
